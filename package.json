@@ -1,6 +1,6 @@
 {
   "name": "panel-zgloszen-serwisowych",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "private": true,
   "type": "module",
   "scripts": {
@@ -36,5 +36,18 @@
       "vite": "npm:@voidzero-dev/vite-plus-core@latest",
       "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
     }
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MateuszKasprzak2tc/panel-zgloszem-serwisowych.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MateuszKasprzak2tc/panel-zgloszem-serwisowych/issues"
+  },
+  "homepage": "https://github.com/MateuszKasprzak2tc/panel-zgloszem-serwisowych#readme"
 }
