@@ -49,7 +49,7 @@ function App() {
     return tickets.filter((ticket) => ticket.status === selectedFilter);
   };
 
-  const filteredTickets = getFilteredTickets(zgloszenia, filter);
+  const filteredTickets = getFilteredTickets(item, filter);
 
   return (
     <>
