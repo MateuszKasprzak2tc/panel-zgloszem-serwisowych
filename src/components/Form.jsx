@@ -27,7 +27,12 @@ function Form({ addTicket }) {
       return;
     }
 
-    addTicket(formData);
+    const newTicket = {
+      ...formData,
+      id: Date.now(),
+    };
+
+    addTicket(newTicket);
 
     setFormData({
       klient: "",
