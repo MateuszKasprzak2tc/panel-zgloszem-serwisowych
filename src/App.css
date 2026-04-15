@@ -1155,3 +1155,59 @@ body::before {
   position: relative;
   z-index: 2;
 }
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid rgba(100, 200, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a2e;
+  font-size: 16px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  font-family: inherit;
+
+  &::placeholder {
+    color: #666;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: rgba(240, 147, 251, 0.8);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+    animation: inputFocus 1.5s ease infinite;
+  }
+
+  &:hover {
+    border-color: rgba(102, 126, 234, 0.6);
+    background: rgba(255, 255, 255, 1);
+  }
+}
+
+.form-input {
+  color: #1a1a2e;
+
+  &::placeholder {
+    color: #888;
+  }
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a1a2e' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  color: #1a1a2e;
+  font-weight: 500;
+
+  option {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a2e;
+    padding: 10px;
+  }
+}
