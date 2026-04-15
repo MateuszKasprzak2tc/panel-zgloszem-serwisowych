@@ -3,6 +3,7 @@ import axios from "axios";
 import FilterStatus from "./components/FilterStatus";
 import TicketList from "./components/TicketList";
 import "./App.css";
+import Form from "./components/Form";
 
 const item = [
   {
@@ -48,11 +49,12 @@ function App() {
     return tickets.filter((ticket) => ticket.status === selectedFilter);
   };
 
-  const filteredTickets = getFilteredTickets(item, filter);
+  const filteredTickets = getFilteredTickets(zgloszenia, filter);
 
   return (
     <>
       <FilterStatus currentFilter={filter} onFilterChange={setFilter} />
+      <Form addTicket={(newTicket) => setZgloszenia([...zgloszenia, newTicket])} />
       <TicketList tickets={filteredTickets} />
     </>
   );
