@@ -21,7 +21,7 @@ function Form({ addTicket }) {
     if (
       formData.klient.trim() === "" ||
       formData.urzadzenie.trim() === "" ||
-      usterka.trim() === ""
+      formData.usterka.trim() === ""
     ) {
       setError("wypełnij wszystkie pola wymagane.");
       return;
