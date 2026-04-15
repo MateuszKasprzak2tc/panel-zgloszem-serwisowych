@@ -5,33 +5,6 @@ import TicketList from "./components/TicketList";
 import "./App.css";
 import Form from "./components/Form";
 
-const item = [
-  {
-    id: 1,
-    klient: "Jan Kowalski",
-    urzadzenie: "Laptop Lenovo",
-    usterka: "Brak obrazu po uruchomieniu",
-    status: "nowe",
-    priorytet: "wysoki",
-  },
-  {
-    id: 2,
-    klient: "Anna Nowak",
-    urzadzenie: "Telefon Samsung",
-    usterka: "Pęknięty ekran",
-    status: "w trakcie",
-    priorytet: "średni",
-  },
-  {
-    id: 3,
-    klient: "Piotr Zieliński",
-    urzadzenie: "Tablet Huawei",
-    usterka: "Nie ładuje baterii",
-    status: "zakończone",
-    priorytet: "niski",
-  },
-];
-
 function App() {
   const [zgloszenia, setZgloszenia] = useState([]);
   const [filter, setFilter] = useState("wszystkie");
@@ -49,12 +22,12 @@ function App() {
     return tickets.filter((ticket) => ticket.status === selectedFilter);
   };
 
-  const filteredTickets = getFilteredTickets(item, filter);
+  const filteredTickets = getFilteredTickets(zgloszenia, filter);
 
   return (
     <>
       <FilterStatus currentFilter={filter} onFilterChange={setFilter} />
-      <Form addTicket={(newTicket) => setZgloszenia([...zgloszenia, newTicket])} />
+      <Form addTicket={(newTicket) => setZgloszenia((prev) => [...prev, newTicket])} />
       <TicketList tickets={filteredTickets} />
     </>
   );
