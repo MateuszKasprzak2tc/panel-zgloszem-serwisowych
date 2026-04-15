@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Summary from "./components/Summary";
 import FilterStatus from "./components/FilterStatus";
 import TicketList from "./components/TicketList";
 import "./App.css";
@@ -43,16 +44,14 @@ function App() {
   }, []);
 
   const getFilteredTickets = (tickets, selectedFilter) => {
-    if (selectedFilter === "wszystkie") {
-      return tickets;
-    }
+    if (selectedFilter === "wszystkie") return tickets;
     return tickets.filter((ticket) => ticket.status === selectedFilter);
   };
-
-  const filteredTickets = getFilteredTickets(item, filter);
+  const filteredTickets = getFilteredTickets([...item, ...zgloszenia], filter);
 
   return (
     <>
+      <Summary tickets={[...item, ...zgloszenia]} />
       <FilterStatus currentFilter={filter} onFilterChange={setFilter} />
       <Form addTicket={(newTicket) => setZgloszenia([...zgloszenia, newTicket])} />
       <TicketList tickets={filteredTickets} />

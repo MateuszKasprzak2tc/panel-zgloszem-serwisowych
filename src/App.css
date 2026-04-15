@@ -1211,3 +1211,124 @@ body::before {
     padding: 10px;
   }
 }
+/* Summary Component Styles */
+.summary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 24px;
+  margin: 16px;
+  animation: slideInLeft 0.6s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(240, 147, 251, 0.15) 100%);
+  border: 2px solid rgba(100, 200, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: slideInLightEffect 3s infinite;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+    border-color: rgba(240, 147, 251, 0.8);
+  }
+}
+
+.summary-card.total {
+  border-left: 4px solid #667eea;
+
+  .summary-count {
+    color: #667eea;
+  }
+}
+
+.summary-card.new {
+  border-left: 4px solid #fbbf24;
+
+  .summary-count {
+    color: #fbbf24;
+  }
+}
+
+.summary-card.in-progress {
+  border-left: 4px solid #3b82f6;
+
+  .summary-count {
+    color: #3b82f6;
+  }
+}
+
+.summary-card.completed {
+  border-left: 4px solid #10b981;
+
+  .summary-count {
+    color: #10b981;
+  }
+}
+
+.summary-icon {
+  font-size: 32px;
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.summary-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.summary-count {
+  font-size: 32px;
+  font-weight: bold;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .summary-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+    margin: 8px;
+  }
+
+  .summary-count {
+    font-size: 24px;
+  }
+
+  .summary-icon {
+    font-size: 24px;
+  }
+}
